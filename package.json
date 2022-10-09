@@ -1,0 +1,19 @@
+{
+  "name": "yelp-camp",
+  "version": "1.0.0",
+  "description": "Yelp Camp - campground project",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Romkin7/yelpcamp.git"
+  },
+  "author": "Roman Tuomisto",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Romkin7/yelpcamp/issues"
+  },
+  "homepage": "https://github.com/Romkin7/yelpcamp#readme"
+}
