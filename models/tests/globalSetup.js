@@ -18,6 +18,6 @@ async function globalSetup() {
     await mongoose.connect(`${process.env.MONGO_URI}/${config.Database}`);
     await mongoose.connection.db.dropDatabase();
     await mongoose.disconnect();
-};
+}
 
 module.exports = globalSetup;

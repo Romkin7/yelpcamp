@@ -30,7 +30,7 @@ jobs:
             # Run yarn install
             - name: Install yarn
               run: |
-                npm install -g yarn
+                  npm install -g yarn
             - name: Install dependencies
               run: yarn
             # Run unit tests for all packages

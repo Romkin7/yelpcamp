@@ -10,21 +10,21 @@ const CampgroundSchema = new Schema({
     },
     price: {
         type: Number,
-        required: true
+        required: true,
     },
     cover: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
     },
     description: {
         type: String,
         required: false,
-        trim: false
+        trim: false,
     },
     location: {
-        type: String
-    }
+        type: String,
+    },
 });
 
 module.exports = mongoose.model('Campground', CampgroundSchema);
