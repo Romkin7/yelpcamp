@@ -1,19 +1,34 @@
 {
-  "name": "yelp-camp",
-  "version": "1.0.0",
-  "description": "Yelp Camp - campground project",
-  "main": "app.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/Romkin7/yelpcamp.git"
-  },
-  "author": "Roman Tuomisto",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/Romkin7/yelpcamp/issues"
-  },
-  "homepage": "https://github.com/Romkin7/yelpcamp#readme"
+    "name": "yelp-camp",
+    "version": "1.0.0",
+    "description": "Yelp Camp - campground project",
+    "main": "app.js",
+    "scripts": {
+        "test": "jest",
+        "start": "node app.js",
+        "dev": "nodemon app.js",
+        "format:check": "prettier --check .",
+        "format:write": "prettier --write .",
+        "lint:check": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "lint": "yarn run format:check && yarn run lint:check",
+        "fix": "yarn run format:write && yarn run lint:fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/Romkin7/yelpcamp.git"
+    },
+    "author": "Roman Tuomisto",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/Romkin7/yelpcamp/issues"
+    },
+    "homepage": "https://github.com/Romkin7/yelpcamp#readme",
+    "devDependencies": {
+        "eslint": "8.25.0",
+        "eslint-config-prettier": "8.5.0",
+        "eslint-plugin-prettier": "4.2.1",
+        "nodemon": "2.0.20",
+        "prettier": "2.7.1"
+    }
 }
