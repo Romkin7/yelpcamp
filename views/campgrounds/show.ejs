@@ -2,7 +2,31 @@
 
     <main>
         <section>
-            <h2><%= title %></h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>
+                            <%= campground.title %>
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <caption>
+                            <img src="<%= campground.cover %>"
+                                alt="<%= campground.title %> <%= campground.location %>" />
+                            <p>
+                                <%= campground.location %>
+                            </p>
+                        </caption>
+                    </div>
+                    <div class="col-md-6">
+                        <article>
+                            <%= campground.description %>
+                        </article>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 

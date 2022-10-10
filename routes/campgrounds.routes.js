@@ -35,7 +35,8 @@ router.post('/campgrounds', async (request, response) => {
 router.get('/campgrounds/:id', async (request, response) => {
     try {
         const campground = await Campground.findById(request.params.id);
-        return response.render('campgrounds/show', { ...campground });
+        console.log(campground);
+        return response.render('campgrounds/show', { campground });
     } catch (error) {
         return response.send(error);
     }

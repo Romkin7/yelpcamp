@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.locals.title = 'YelpCamp';
+app.locals.appTitle = 'YelpCamp';
 // use routes
 app.use(campgroundsRoutes);
 // Listen on port 8080

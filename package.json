@@ -4,7 +4,7 @@
     "description": "Yelp Camp - campground project",
     "main": "app.js",
     "scripts": {
-        "seedDb": "node seeds/seedDb.js",
+        "seed:db": "node seeds/seedDb.js",
         "test": "jest --forceExit",
         "test:coverage": "jest --coverage",
         "start": "node app.js",

@@ -22,6 +22,7 @@
                             </picture>
                             <h2><%= campground.title %></h2>
                             <p><%= campground.description %></p>
+                            <a class="btn btn-info" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
                         </article>
                     </div>
                 <% }); %>
