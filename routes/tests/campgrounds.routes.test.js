@@ -57,7 +57,9 @@ describe('Tests for campgrounds routes', () => {
         });
     });
     it('get request to /campgrounds/:id returns a campground', async () => {
-        const response = await request(server).get(`/campgrounds/${campgroundId}`);
+        const response = await request(server).get(
+            `/campgrounds/${campgroundId}`,
+        );
         expect(response.statusCode).toEqual(200);
         expect(response.text).toBeTruthy();
     });
@@ -113,8 +115,7 @@ describe('Tests for campgrounds routes', () => {
             });
         expect(response.statusCode).toEqual(404);
         expect(response.body).toStrictEqual({
-            message:
-                'Campground not found!',
+            message: 'Campground not found!',
         });
     });
     it('put request to /campgrounds/:id with invalid title returns an error', async () => {

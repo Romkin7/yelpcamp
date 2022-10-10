@@ -47,7 +47,7 @@ router.get('/campgrounds/:id/edit', async (request, response) => {
         const campground = await Campground.findById(request.params.id);
         return response.render('campgrounds/edit', { campground });
     } catch (error) {
-         return response.status(404).json({ message: 'Campground not found!' });
+        return response.status(404).json({ message: 'Campground not found!' });
     }
 });
 
@@ -63,7 +63,7 @@ router.put('/campgrounds/:id', async (request, response) => {
         const updatedCampground = await campground.save();
         return response.redirect(`/campgrounds/${updatedCampground._id}`);
     } catch (error) {
-        if(error instanceof mongoose.Error.ValidationError) {
+        if (error instanceof mongoose.Error.ValidationError) {
             return response.status(422).json({ message: error.message });
         }
         return response.status(404).json({ message: 'Campground not found!' });
