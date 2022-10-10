@@ -7,7 +7,7 @@ const CampgroundSchema = new Schema(
             type: String,
             required: true,
             trim: true,
-            unique: true,
+            unique: false,
         },
         price: {
             type: Number,
