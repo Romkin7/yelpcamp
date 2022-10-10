@@ -1,0 +1,32 @@
+<%- include('../partials/head') %>
+
+    <main>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>New Campground</h1>
+                        <p>Create new campground</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="/campgrounds" method="post">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" aria-describedby="campgrounds Title">
+                                <div id="campgroundTitle" class="form-text"></div>
+                            </div>
+                            <button type="submit" class="btn btn-outline-success">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer') %>
