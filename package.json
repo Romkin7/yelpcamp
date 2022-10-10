@@ -13,7 +13,7 @@
         "format:write": "prettier --write .",
         "lint:check": "eslint .",
         "lint:fix": "eslint --fix .",
-        "lint": "yarn run format:check && yarn run lint:check && yarn run test",
+        "lint": "yarn run format:check && yarn run lint:check",
         "fix": "yarn run format:write && yarn run lint:fix"
     },
     "repository": {
