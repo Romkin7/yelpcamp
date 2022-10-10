@@ -15,10 +15,13 @@
                         <caption>
                             <img src="<%= campground.cover %>"
                                 alt="<%= campground.title %> <%= campground.location %>" />
+                                <p>Price/night <%= campground.price %>€</p>
                             <p>
                                 <%= campground.location %>
                             </p>
                         </caption>
+                        <a class="btn btn-primary" href="/campgrounds">All campgrounds</a>
+                        <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
                     </div>
                     <div class="col-md-6">
                         <article>
