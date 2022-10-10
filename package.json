@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "seedDb": "node seeds/seedDb.js",
-        "test": "jest --colors",
+        "test": "jest",
         "test:coverage": "jest --coverage",
         "start": "node app.js",
         "dev": "nodemon app.js",
