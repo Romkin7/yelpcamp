@@ -4,7 +4,9 @@ const Campground = require('../models/campgrounds.model');
 
 router.get('/campgrounds', async (request, response) => {
     try {
-        const campgrounds = await Campground.find({}).sort({ createdAt: -1 });
+        const campgrounds = await Campground.find({})
+            .sort({ createdAt: -1 })
+            .limit(8);
         return response.render('campgrounds/index', { campgrounds });
     } catch (error) {
         return response.send(error);
@@ -26,7 +28,7 @@ router.post('/campgrounds', async (request, response) => {
         const newCampground = await campground.save();
         return response.redirect(`/campgrounds/${newCampground._id}`);
     } catch (error) {
-        return response.send(error);
+        return response.status(422).send({ message: error.message });
     }
 });
 

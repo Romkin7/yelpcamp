@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "seedDb": "node seeds/seedDb.js",
-        "test": "jest",
+        "test": "jest --colors",
         "test:coverage": "jest --coverage",
         "start": "node app.js",
         "dev": "nodemon app.js",
@@ -33,7 +33,6 @@
         "mongoose": "6.6.5"
     },
     "devDependencies": {
-        "cross-env": "7.0.3",
         "eslint": "8.25.0",
         "eslint-config-prettier": "8.5.0",
         "eslint-plugin-prettier": "4.2.1",
