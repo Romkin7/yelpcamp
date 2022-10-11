@@ -1,46 +1,45 @@
 <% layout('layouts/main') -%>
-<main>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1>
-                        <%= campground.title %>
-                    </h1>
-                    <p>Edit campground</p>
-                </div>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>
+                    <%= campground.title %>
+                </h1>
+                <p>Edit campground</p>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post">
-                        <div class="mb-3">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" value="<%= campground.title %>" aria-describedby="campgrounds Title">
-                            <div id="campgroundTitle" class="form-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="price" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="price" name="price" value="<%= campground.price %>" aria-describedby="campgrounds Price">
-                            <div id="campgroundPrice" class="form-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="location" class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location" name="location" value="<%= campground.location %>" aria-describedby="campgrounds Location">
-                            <div id="campgroundLocation" class="form-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="4"><%= campground.description %></textarea>
-                            <div id="campgroundDescription" class="form-text"></div>
-                        </div>
-                        <button type="submit" class="btn btn-outline-warning">Edit <%= campground.title %></button>
-                    </form>
-                </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" value="<%= campground.title %>" aria-describedby="campgrounds Title">
+                        <div id="campgroundTitle" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="price" name="price" value="<%= campground.price %>" aria-describedby="campgrounds Price">
+                        <div id="campgroundPrice" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" name="location" value="<%= campground.location %>" aria-describedby="campgrounds Location">
+                        <div id="campgroundLocation" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="4"><%= campground.description %></textarea>
+                        <div id="campgroundDescription" class="form-text"></div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-warning">Edit <%= campground.title %></button>
+                </form>
             </div>
         </div>
-    </section>
-</main>
+    </div>
+</section>
