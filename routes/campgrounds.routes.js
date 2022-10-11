@@ -70,4 +70,17 @@ router.put('/campgrounds/:id', async (request, response) => {
     }
 });
 
+router.delete('/campgrounds/:id', async (request, response) => {
+    try {
+        const campground = await Campground.findById(request.params.id);
+        await campground.delete();
+        return response.redirect('/campgrounds');
+    } catch (error) {
+        if (error instanceof mongoose.Error.ValidationError) {
+            return response.status(422).json({ message: error.message });
+        }
+        return response.status(404).json({ message: 'Campground not found!' });
+    }
+});
+
 module.exports = router;

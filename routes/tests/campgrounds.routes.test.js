@@ -135,4 +135,20 @@ describe('Tests for campgrounds routes', () => {
                 'Campground validation failed: title: Path `title` is required.',
         });
     });
+    it('delete request to /campgrounds/:id with invalid id returns a error', async () => {
+        const response = await request(server).delete(
+            `/campgrounds/${campgroundId}5`,
+        );
+        expect(response.statusCode).toEqual(404);
+        expect(response.body).toStrictEqual({
+            message: 'Campground not found!',
+        });
+    });
+    it('delete request to /campgrounds/:id deletes a campground', async () => {
+        const response = await request(server).delete(
+            `/campgrounds/${campgroundId}`,
+        );
+        expect(response.statusCode).toEqual(302);
+        expect(response.text).toBeTruthy();
+    });
 });
