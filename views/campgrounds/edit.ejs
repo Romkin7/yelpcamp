@@ -1,11 +1,12 @@
-<%- include('../partials/head') %>
-
+<% layout('layouts/main') -%>
 <main>
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1><%= campground.title %></h1>
+                    <h1>
+                        <%= campground.title %>
+                    </h1>
                     <p>Edit campground</p>
                 </div>
             </div>
@@ -23,14 +24,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="price" name="price" value="<%= campground.price %>"
-                                aria-describedby="campgrounds Price">
+                            <input type="number" class="form-control" id="price" name="price" value="<%= campground.price %>" aria-describedby="campgrounds Price">
                             <div id="campgroundPrice" class="form-text"></div>
                         </div>
                         <div class="mb-3">
                             <label for="location" class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location" name="location" value="<%= campground.location %>"
-                                aria-describedby="campgrounds Location">
+                            <input type="text" class="form-control" id="location" name="location" value="<%= campground.location %>" aria-describedby="campgrounds Location">
                             <div id="campgroundLocation" class="form-text"></div>
                         </div>
                         <div class="mb-3">
@@ -45,5 +44,3 @@
         </div>
     </section>
 </main>
-
-<%- include('../partials/footer') %>

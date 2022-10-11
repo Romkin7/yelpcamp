@@ -1,5 +1,4 @@
-<%- include('../partials/head') %>
-
+<% layout('layouts/main') -%>
 <main>
     <section>
         <div class="container">
@@ -15,20 +14,18 @@
         <div class="container">
             <div class="row">
                 <% campgrounds.forEach((campground) => { %>
-                    <div class="col-md-4">
-                        <article class="text-center">
-                            <picture>
-                                <img src="<%= campground.cover %>" alt="<%= campground.title %>" />
-                            </picture>
-                            <h2><%= campground.title %></h2>
-                            <p><%= campground.description %></p>
-                            <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
-                        </article>
-                    </div>
+                <div class="col-md-4">
+                    <article class="text-center">
+                        <picture>
+                            <img src="<%= campground.cover %>" alt="<%= campground.title %>" />
+                        </picture>
+                        <h2><%= campground.title %></h2>
+                        <p><%= campground.description %></p>
+                        <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
+                    </article>
+                </div>
                 <% }); %>
             </div>
         </div>
     </section>
 </main>
-
-<%- include('../partials/footer') %>
