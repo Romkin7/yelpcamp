@@ -6,6 +6,8 @@ const path = require('path');
 const methodOverRide = require('method-override');
 const morgan = require('morgan');
 const ejsMate = require('ejs-mate');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 // require routes
 const campgroundsRoutes = require('./routes/campgrounds.routes');
 //Set ip and port
@@ -24,6 +26,8 @@ app.use(methodOverRide('_method'));
 app.locals.appTitle = 'YelpCamp';
 // use routes
 app.use(campgroundsRoutes);
+/** Swagger api docs */
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Not found error handler
 app.use('*', (request, response) => {
     return response.status(404).render('404');
