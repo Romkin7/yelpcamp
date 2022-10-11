@@ -1,0 +1,10 @@
+{
+    "yc": {
+        "border": {
+            "small": { "value": "4px" },
+            "medium": { "value": "8px" },
+            "large": { "value": "12px" },
+            "circle": { "value": "50%" }
+        }
+    }
+}

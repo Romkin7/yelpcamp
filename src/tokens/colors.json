@@ -1,0 +1,15 @@
+{
+    "yc": {
+        "color": {
+            "primary-main": { "value": "#54c4cb" },
+            "primary-second": { "value": "#5eb2d5" },
+            "primary-dark": { "value": "#1d2831" },
+            "warning": { "value": "#ffcba4" },
+            "danger": { "value": "#e4175c" },
+            "white": { "value": "#ffffff" },
+            "dark-gray": { "value": "#222222" },
+            "black": { "value": "#000000" },
+            "transparent": { "value": "transparent" }
+        }
+    }
+}
