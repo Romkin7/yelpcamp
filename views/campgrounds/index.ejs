@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h1>Campgrounds</h1>
-                <p>Browse campgrounds</p>
+                <h1 class="typography">Campgrounds</h1>
+                <p class="typography">Browse campgrounds</p>
             </div>
         </div>
     </div>
@@ -18,9 +18,9 @@
                     <picture>
                         <img src="<%= campground.cover %>" alt="<%= campground.title %>" />
                     </picture>
-                    <h2><%= campground.title %></h2>
-                    <p><%= campground.description %></p>
-                    <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
+                    <h2 class="typography"><%= campground.title %></h2>
+                    <p class="typography"><%= campground.description %></p>
+                    <a class="btn btn-primary button button--default" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
                 </article>
             </div>
             <% }); %>

@@ -1,0 +1,15 @@
+{
+    "extends": [
+        "stylelint-config-sass-guidelines",
+        "stylelint-config-prettier-scss"
+    ],
+    "rules": {
+        "number-leading-zero": null,
+        "color-hex-length": "long",
+        "declaration-property-value-disallowed-list": {
+            "outline": "none"
+        },
+        "max-nesting-depth": 3,
+        "declaration-no-important": true
+    }
+}

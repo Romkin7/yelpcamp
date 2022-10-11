@@ -1,4 +1,4 @@
 node_modules
 views
 **/tests
-public/lib
+public/**

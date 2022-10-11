@@ -1,0 +1,34 @@
+@import './variables';
+
+.button {
+    border-radius: $yc-border-radius-medium;
+    color: $yc-color-white;
+
+    &--default {
+        background: $yc-color-primary-main;
+        border: 2px solid $yc-color-primary-main;
+
+        &:hover {
+            background-color: rgba($yc-color-primary-main, .8);
+            border-color: $yc-color-primary-main;
+        }
+    }
+    &--warning {
+        background: $yc-color-warning;
+        border: 2px solid $yc-color-warning;
+
+        &:hover {
+            background-color: rgba($yc-color-warning, .8);
+            border-color: $yc-color-warning;
+        }
+    }
+    &--danger {
+        background: $yc-color-danger;
+        border: 2px solid $yc-color-danger;
+
+        &:hover {
+            background-color: rgba($yc-color-danger, .8);
+            border-color: $yc-color-danger;
+        }
+    }
+}

@@ -10,12 +10,15 @@
         "swagger": "nodemon ./swagger.conf.js",
         "start": "node app.js",
         "build:tokens": "style-dictionary build -c src/config.json",
-        "dev": "yarn run swagger & yarn run build:tokens & nodemon app.js",
+        "build:client": "webpack",
+        "build:client:watch": "webpack --watch",
+        "dev": "yarn run swagger & yarn run build:tokens & yarn run build:client:watch & nodemon app.js",
         "format:check": "prettier --check .",
         "format:write": "prettier --write .",
         "lint:check": "eslint .",
         "lint:fix": "eslint --fix .",
-        "lint": "yarn run format:check && yarn run lint:check",
+        "lint": "yarn run format:check && yarn run lint:check && yarn run stylelint",
+        "stylelint": "stylelint 'src/scss/**/*.scss' '*.scss'",
         "fix": "yarn run format:write && yarn run lint:fix"
     },
     "repository": {
@@ -40,6 +43,7 @@
         "swagger-ui-express": "4.5.0"
     },
     "devDependencies": {
+        "css-loader": "6.7.1",
         "eslint": "8.25.0",
         "eslint-config-prettier": "8.5.0",
         "eslint-plugin-prettier": "4.2.1",
@@ -47,7 +51,16 @@
         "mongodb-memory-server": "8.9.3",
         "nodemon": "2.0.20",
         "prettier": "2.7.1",
+        "sass": "1.55.0",
+        "sass-loader": "13.1.0",
         "style-dictionary": "3.7.1",
-        "supertest": "6.3.0"
+        "stylelint": "14.9.1",
+        "stylelint-config-sass-guidelines": "9.0.1",
+        "stylelint-config-prettier-scss": "0.0.1",
+        "stylelint-config-standard": "26.0.0",
+        "style-loader": "3.3.1",
+        "supertest": "6.3.0",
+        "webpack": "5.74.0",
+        "webpack-cli": "4.10.0"
     }
 }

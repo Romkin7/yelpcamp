@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>
+                <h1 class="typography">
                     <%= campground.title %>
                 </h1>
             </div>
@@ -12,8 +12,8 @@
             <div class="col-md-6">
                 <caption>
                     <img src="<%= campground.cover %>" alt="<%= campground.title %> <%= campground.location %>" />
-                    <p>Price/night <%= campground.price %>€</p>
-                    <p>
+                    <p class="typography">Price/night <%= campground.price %>€</p>
+                    <p class="typography">
                         <%= campground.location %>
                     </p>
                 </caption>
@@ -24,7 +24,7 @@
                 </form>
             </div>
             <div class="col-md-6">
-                <article>
+                <article class="typography">
                     <%= campground.description %>
                 </article>
             </div>
