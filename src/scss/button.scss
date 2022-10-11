@@ -9,7 +9,7 @@
         border: 2px solid $yc-color-primary-main;
 
         &:hover {
-            background-color: rgba($yc-color-primary-main, .8);
+            background-color: rgba($yc-color-primary-main, 0.8);
             border-color: $yc-color-primary-main;
         }
     }
@@ -18,7 +18,7 @@
         border: 2px solid $yc-color-warning;
 
         &:hover {
-            background-color: rgba($yc-color-warning, .8);
+            background-color: rgba($yc-color-warning, 0.8);
             border-color: $yc-color-warning;
         }
     }
@@ -27,7 +27,7 @@
         border: 2px solid $yc-color-danger;
 
         &:hover {
-            background-color: rgba($yc-color-danger, .8);
+            background-color: rgba($yc-color-danger, 0.8);
             border-color: $yc-color-danger;
         }
     }
