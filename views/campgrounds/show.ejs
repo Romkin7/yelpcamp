@@ -17,10 +17,10 @@
                         <%= campground.location %>
                     </p>
                 </caption>
-                <a class="btn btn-primary" href="/campgrounds">All campgrounds</a>
-                <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                <a class="btn button button--default" href="/campgrounds">All campgrounds</a>
+                <a class="btn button button--warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
                 <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post">
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn button button--danger">Delete</button>
                 </form>
             </div>
             <div class="col-md-6">

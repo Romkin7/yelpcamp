@@ -1,0 +1,12 @@
+@import './variables';
+
+.card {
+    box-shadow: $yc-shadow-small-dark;
+    margin: 0 auto;
+    transition: box-shadow 120ms ease-in-out;
+    width: 99%;
+
+    &:hover {
+        box-shadow: $yc-shadow-medium-dark;
+    }
+}

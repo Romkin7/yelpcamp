@@ -1,16 +1,21 @@
 @import './variables';
 
 .button {
-    border-radius: $yc-border-radius-medium;
+    border-radius: $yc-border-radius-small;
     color: $yc-color-white;
 
     &--default {
         background: $yc-color-primary-main;
         border: 2px solid $yc-color-primary-main;
 
-        &:hover {
-            background-color: rgba($yc-color-primary-main, 0.8);
-            border-color: $yc-color-primary-main;
+        &:hover,
+        &:focus,
+        &:active {
+            /* stylelint-disable declaration-no-important */
+            background-color: rgba($yc-color-primary-main, 0.8) !important;
+            border-color: $yc-color-primary-main !important;
+            color: $yc-color-white !important;
+            /* stylelint-enable declaration-no-important */
         }
     }
 
@@ -18,9 +23,14 @@
         background: $yc-color-warning;
         border: 2px solid $yc-color-warning;
 
-        &:hover {
-            background-color: rgba($yc-color-warning, 0.8);
-            border-color: $yc-color-warning;
+        &:hover,
+        &:focus,
+        &:active {
+            /* stylelint-disable declaration-no-important */
+            background-color: rgba($yc-color-warning, 0.8) !important;
+            border-color: $yc-color-warning !important;
+            color: $yc-color-white !important;
+            /* stylelint-enable declaration-no-important */
         }
     }
 
@@ -28,9 +38,14 @@
         background: $yc-color-danger;
         border: 2px solid $yc-color-danger;
 
-        &:hover {
-            background-color: rgba($yc-color-danger, 0.8);
-            border-color: $yc-color-danger;
+        &:hover,
+        &:focus,
+        &:active {
+            /* stylelint-disable declaration-no-important */
+            background-color: rgba($yc-color-danger, 0.8) !important;
+            border-color: $yc-color-danger !important;
+            color: $yc-color-white !important;
+            /* stylelint-enable declaration-no-important */
         }
     }
 }
