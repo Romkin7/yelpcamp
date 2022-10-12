@@ -7,14 +7,14 @@ describe('Tests for campgrounds model', () => {
         // Initialize campground
         const campground = new Campground({
             title: 'Test campground 1',
-            cover: 'https://www.unsplash.com/someimageurl',
+            cover: { uri: 'https://www.unsplash.com/someimageurl' },
             price: 34,
             description: 'Some test description of this campground.',
             location: '110 MainStreet, New York',
         });
 
         expect(campground.title).toEqual('Test campground 1');
-        expect(campground.cover).toEqual(
+        expect(campground.cover.uri).toEqual(
             'https://www.unsplash.com/someimageurl',
         );
         expect(campground.price).toEqual(34);

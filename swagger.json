@@ -50,6 +50,9 @@
                                 "price": {
                                     "example": "any"
                                 },
+                                "cover": {
+                                    "example": "any"
+                                },
                                 "description": {
                                     "example": "any"
                                 },
@@ -106,6 +109,9 @@
                         "schema": {
                             "type": "object",
                             "properties": {
+                                "cover": {
+                                    "example": "any"
+                                },
                                 "title": {
                                     "example": "any"
                                 },

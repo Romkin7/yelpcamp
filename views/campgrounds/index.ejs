@@ -13,16 +13,25 @@
     <div class="container">
         <div class="row">
             <% campgrounds.forEach((campground) => { %>
-            <div class="col-md-4 my-3">
-                <article class="text-center card p-2">
-                    <picture>
-                        <img src="<%= campground.cover %>" alt="<%= campground.title %>" />
-                    </picture>
-                    <h2 class="typography"><%= campground.title %></h2>
-                    <p class="typography"><%= campground.description %></p>
-                    <a class="btn button button--default" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
-                </article>
-            </div>
+            <article class="card mb-3">
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <picture>
+                            <img src="<%= campground.cover.uri %>" alt="<%= campground.title %>" />
+                        </picture>
+                    </div>
+                    <div class="col-md-8 col-12">
+                        <div class="card-body">
+                            <h2 class="card-title typography"><%= campground.title %></h2>
+                            <p class="card-text typography"><%= campground.description.substring(0, 200) %></p>
+                            <p class="card-text typography">
+                                <small class="text-muted"><%= campground.location %></small>
+                            </p>
+                            <a class="btn button button--default" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
             <% }); %>
         </div>
     </div>

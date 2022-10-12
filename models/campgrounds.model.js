@@ -14,9 +14,16 @@ const CampgroundSchema = new Schema(
             required: true,
         },
         cover: {
-            type: String,
-            required: true,
-            trim: true,
+            uri: {
+                type: String,
+                required: true,
+                trim: true,
+            },
+            publicId: {
+                type: String,
+                required: false,
+                trim: true,
+            },
         },
         description: {
             type: String,

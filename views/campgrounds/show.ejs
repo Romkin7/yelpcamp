@@ -1,32 +1,35 @@
 <% layout('layouts/main') -%>
 <section>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-7">
                 <h1 class="typography">
                     <%= campground.title %>
                 </h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <caption>
-                    <img src="<%= campground.cover %>" alt="<%= campground.title %> <%= campground.location %>" />
-                    <p class="typography">Price/night <%= campground.price %>€</p>
-                    <p class="typography">
-                        <%= campground.location %>
-                    </p>
-                </caption>
-                <a class="btn button button--default" href="/campgrounds">All campgrounds</a>
-                <a class="btn button button--warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-                <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post">
-                    <button class="btn button button--danger">Delete</button>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <article class="typography">
-                    <%= campground.description %>
-                </article>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-7">
+                <div class="card">
+                    <picture>
+                        <img class="img-fluid" src="<%= campground.cover.uri %>" alt="<%= campground.title %> <%= campground.location %>" />
+                    </picture>
+                    <div class="card-body">
+                        <p class="card-text typography">Location: <%= campground.location %></p>
+                        <p class="card-text typograpty"><strong><%= campground.price %>€/night</strong></p>
+                        <p class="card-text typography"><strong>Info about location:</strong></p>
+                        <article class="card-text typography">
+                            <%= campground.description %>
+                        </article>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn button button--default" href="/campgrounds">All campgrounds</a>
+                        <a class="btn button button--warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                        <form class="d-inline" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post">
+                            <button class="btn button button--danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
