@@ -13,14 +13,14 @@
     <div class="container">
         <div class="row">
             <% campgrounds.forEach((campground) => { %>
-            <div class="col-md-4">
-                <article class="text-center">
+            <div class="col-md-4 my-3">
+                <article class="text-center card p-2">
                     <picture>
                         <img src="<%= campground.cover %>" alt="<%= campground.title %>" />
                     </picture>
                     <h2 class="typography"><%= campground.title %></h2>
                     <p class="typography"><%= campground.description %></p>
-                    <a class="btn btn-primary button button--default" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
+                    <a class="btn button button--default" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
                 </article>
             </div>
             <% }); %>

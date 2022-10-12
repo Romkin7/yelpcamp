@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const ejsMate = require('ejs-mate');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+const pkg = require('./package.json');
 // require routes
 const campgroundsRoutes = require('./routes/campgrounds.routes');
 //Set ip and port
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(methodOverRide('_method'));
 app.locals.appTitle = 'YelpCamp';
+app.locals.appAuthor = pkg.author;
 // use routes
 app.use(campgroundsRoutes);
 /** Swagger api docs */

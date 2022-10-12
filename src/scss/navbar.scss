@@ -1,0 +1,18 @@
+@import './variables';
+
+.navbar {
+    background: linear-gradient(
+        to left,
+        $yc-color-primary-main,
+        $yc-color-primary-second
+    );
+
+    a {
+        color: $yc-color-primary-dark;
+        transition: color 120ms ease-out;
+
+        &:hover {
+            color: rgba($yc-color-primary-dark, 0.8);
+        }
+    }
+}
