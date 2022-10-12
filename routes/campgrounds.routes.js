@@ -2,6 +2,8 @@ const { Router } = require('express');
 const router = Router();
 const mongoose = require('mongoose');
 const Campground = require('../models/campgrounds.model');
+const configCloudinary = require('../config/cloudinaryConfig');
+const cloudinary = require('cloudinary');
 
 router.get('/campgrounds', async (request, response) => {
     try {
@@ -20,10 +22,17 @@ router.get('/campgrounds/new', (request, response) => {
 
 router.post('/campgrounds', async (request, response) => {
     try {
+        let uploadResponse = null;
+        if (!request.body.cover) {
+            await configCloudinary();
+            const fileUrl = request.files.cover.tempFilePath;
+            uploadResponse = await cloudinary.v2.uploader.upload(fileUrl);
+        }
         const campground = new Campground();
         campground.title = request.body.title;
         campground.price = request.body.price;
-        campground.cover = 'https://source.unsplash.com/random/?city,night';
+        campground.cover.uri = uploadResponse?.secure_url || request.body.cover;
+        campground.cover.publicId = uploadResponse?.public_id || null;
         campground.description = request.body.description;
         campground.location = request.body.location;
         const newCampground = await campground.save();
@@ -55,11 +64,21 @@ router.put('/campgrounds/:id', async (request, response) => {
     try {
         const { title, location, price, description } = request.body;
         const campground = await Campground.findById(request.params.id);
+        let uploadResponse = null;
+        if (!request.body.cover) {
+            await configCloudinary();
+            await cloudinary.v2.uploader.destroy(campground.cover.publicId);
+            const fileUrl = request.files.cover.tempFilePath;
+            uploadResponse = await cloudinary.v2.uploader.upload(fileUrl);
+        }
         campground.title = title;
         campground.price = price;
         campground.description = description;
         campground.location = location;
-        campground.cover = 'https://source.unsplash.com/random/?city,night';
+        campground.cover.uri = uploadResponse?.secure_url
+            ? uploadResponse.secure_url
+            : request.body.cover;
+        campground.cover.publicId = uploadResponse?.public_id || null;
         const updatedCampground = await campground.save();
         return response.redirect(`/campgrounds/${updatedCampground._id}`);
     } catch (error) {
@@ -73,6 +92,10 @@ router.put('/campgrounds/:id', async (request, response) => {
 router.delete('/campgrounds/:id', async (request, response) => {
     try {
         const campground = await Campground.findById(request.params.id);
+        if (campground.cover.publicId) {
+            await configCloudinary();
+            await cloudinary.v2.uploader.destroy(campground.cover.publicId);
+        }
         await campground.delete();
         return response.redirect('/campgrounds');
     } catch (error) {

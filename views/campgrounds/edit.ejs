@@ -14,9 +14,9 @@
 </section>
 <section>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control" id="title" name="title" value="<%= campground.title %>" aria-describedby="campgrounds Title">
@@ -36,6 +36,10 @@
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control" id="description" name="description" rows="4"><%= campground.description %></textarea>
                         <div id="campgroundDescription" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cover" class="form-label">Default file input example</label>
+                        <input class="form-control" type="file" id="cover" name="cover">
                     </div>
                     <button type="submit" class="btn button--warning">Edit <%= campground.title %></button>
                 </form>
