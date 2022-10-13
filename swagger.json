@@ -44,13 +44,13 @@
                         "schema": {
                             "type": "object",
                             "properties": {
+                                "cover": {
+                                    "example": "any"
+                                },
                                 "title": {
                                     "example": "any"
                                 },
                                 "price": {
-                                    "example": "any"
-                                },
-                                "cover": {
                                     "example": "any"
                                 },
                                 "description": {

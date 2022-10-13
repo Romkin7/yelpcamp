@@ -22,12 +22,15 @@
                             <%= campground.description %>
                         </article>
                     </div>
-                    <div class="card-footer">
-                        <a class="btn button button--default" href="/campgrounds">All campgrounds</a>
+                    <div class="card-body">
                         <a class="btn button button--warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
                         <form class="d-inline" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post">
                             <button class="btn button button--danger">Delete</button>
                         </form>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text typography"><%= getDaysAgo(campground.createdAt) %></p>
+                        <a class="btn button button--default" href="/campgrounds">All campgrounds</a>
                     </div>
                 </div>
             </div>
