@@ -13,31 +13,34 @@
 <section>
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8">
-                <form action="/campgrounds" method="post" enctype="multipart/form-data">
+            <div class="col-md-7">
+                <form class="validateForm" action="/campgrounds" method="post" enctype="multipart/form-data" novalidate>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" aria-describedby="campgrounds Title">
+                        <label for="title" class="form-label">Title *</label>
+                        <input type="text" class="form-control" id="title" name="title" aria-describedby="campgrounds Title" required />
                         <div id="campgroundTitle" class="form-text"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="price" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="price" name="price" aria-describedby="campgrounds Price">
-                        <div id="campgroundPrice" class="form-text"></div>
+                        <label for="price">Price *</label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" name="price" id="price" aria-label="Amount (to the nearest dollar)" required />
+                            <span class="input-group-text">.00</span>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="location" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="location" name="location" aria-describedby="campgrounds Location">
+                        <label for="location" class="form-label">Location *</label>
+                        <input type="text" class="form-control" id="location" name="location" aria-describedby="campgrounds Location" required />
                         <div id="campgroundLocation" class="form-text"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                        <label for="description" class="form-label">Description *</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
                         <div id="campgroundDescription" class="form-text"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="cover" class="form-label">Default file input example</label>
-                        <input class="form-control" type="file" id="cover" name="cover">
+                        <label for="cover" class="form-label">Cover image *</label>
+                        <input class="form-control" type="file" id="cover" name="cover" required />
                     </div>
                     <button type="submit" class="btn button button--default">Create</button>
                 </form>

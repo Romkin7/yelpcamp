@@ -3,6 +3,7 @@ require('./config/dbConnection');
 const express = require('express');
 const app = express();
 const path = require('path');
+const { formatDistance } = require('date-fns');
 const expressFileUpload = require('express-fileupload');
 const methodOverRide = require('method-override');
 const morgan = require('morgan');
@@ -26,6 +27,11 @@ app.use(express.json());
 app.use(expressFileUpload({ useTempFiles: true }));
 app.use(morgan('tiny'));
 app.use(methodOverRide('_method'));
+app.locals.getDaysAgo = function (inputDate) {
+    return formatDistance(new Date(inputDate), new Date(), {
+        addSuffix: true,
+    });
+};
 app.locals.appTitle = 'YelpCamp';
 app.locals.appAuthor = pkg.author;
 // use routes
