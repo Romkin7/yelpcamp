@@ -51,10 +51,7 @@ describe('Tests for campgrounds routes', () => {
                     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima dolorem ipsa expedita quae quibusdam ipsam ullam amet sunt magni rem. Error vero aperiam hic est delectus facere cumque perspiciatis veritatis.',
             });
         expect(response.statusCode).toEqual(422);
-        expect(response.body).toStrictEqual({
-            message:
-                'Campground validation failed: title: Path `title` is required.',
-        });
+        expect(response.text).toBeTruthy();
     });
     it('get request to /campgrounds/:id returns a campground', async () => {
         const response = await request(server).get(

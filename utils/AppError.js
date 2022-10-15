@@ -9,9 +9,6 @@ class AppError {
         this.status = status;
         this.trace = trace;
     }
-    getErrorResponse(response) {
-        return response.status(this.status).render('errorPage', {error: this });
-    }
 }
 
 module.exports = AppError;

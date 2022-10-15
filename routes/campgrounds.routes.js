@@ -45,7 +45,6 @@ router.post('/campgrounds', async (request, response, next) => {
             .status(302)
             .redirect(`/campgrounds/${newCampground._id}`);
     } catch (error) {
-        console.dir(error);
         if (error instanceof mongoose.Error.ValidationError) {
             const appError = new AppError({
                 status: 422,
@@ -53,7 +52,9 @@ router.post('/campgrounds', async (request, response, next) => {
                 resourceName: 'submitted',
                 trace: error.trace || error,
             });
-            return response.status(appError.status).render('errorPage', { error: appError })
+            return response
+                .status(appError.status)
+                .render('errorPage', { error: appError });
         } else {
             return next(error);
         }
@@ -76,7 +77,7 @@ router.get('/campgrounds/:id', async (request, response) => {
 router.get('/campgrounds/:id/edit', async (request, response) => {
     try {
         const campground = await Campground.findById(request.params.id);
-        return response.render('campgrounds/edit', { campground });
+        return response.status(200).render('campgrounds/edit', { campground });
     } catch (error) {
         return response.status(404).json({ message: 'Campground not found!' });
     }
