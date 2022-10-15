@@ -4,7 +4,7 @@ Yelp Camp - campground project made using Node.js
 
 ## Install
 
-Install yarn on your system: 
+Install yarn on your system:
 
 ```sh
 npm install yarn -g
@@ -15,6 +15,7 @@ Install project dependencies
 ```sh
 yarn
 ```
+
 ## Run project
 
 This will start node process, webpack --watch and swagger autogen.
@@ -36,6 +37,7 @@ Lint fix
 ```sh
 yarn run fix
 ```
+
 Test with Jest
 
 ```sh

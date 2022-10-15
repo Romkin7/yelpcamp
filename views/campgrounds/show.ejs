@@ -14,10 +14,12 @@
                     <picture>
                         <img class="img-fluid" src="<%= campground.cover.uri %>" alt="<%= campground.title %> <%= campground.location %>" />
                     </picture>
-                    <div class="card-body">
+                    <div class="card-body d-flex justify-content-between">
                         <p class="card-text typography">Location: <%= campground.location %></p>
-                        <p class="card-text typograpty"><strong><%= campground.price %>€/night</strong></p>
-                        <p class="card-text typography"><strong>Info about location:</strong></p>
+                        <p class="card-text typograpty"><strong>$<%= campground.price %>/night</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-text typography">Info about location:</h4>
                         <article class="card-text typography">
                             <%= campground.description %>
                         </article>

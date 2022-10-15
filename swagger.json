@@ -28,7 +28,13 @@
         "/campgrounds": {
             "get": {
                 "description": "",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -64,13 +70,24 @@
                     }
                 ],
                 "responses": {
-                    "422": {
-                        "description": "Unprocessable Entity"
+                    "302": {
+                        "description": "Found"
                     }
                 }
             }
         },
         "/campgrounds/new": {
+            "get": {
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/campgrounds/api-docs": {
             "get": {
                 "description": "",
                 "parameters": [],
@@ -89,6 +106,9 @@
                     }
                 ],
                 "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
                     "404": {
                         "description": "Not Found"
                     }
@@ -129,8 +149,11 @@
                     }
                 ],
                 "responses": {
-                    "404": {
-                        "description": "Not Found"
+                    "302": {
+                        "description": "Found"
+                    },
+                    "400": {
+                        "description": "Bad Request"
                     },
                     "422": {
                         "description": "Unprocessable Entity"
@@ -148,6 +171,9 @@
                     }
                 ],
                 "responses": {
+                    "302": {
+                        "description": "Found"
+                    },
                     "404": {
                         "description": "Not Found"
                     },
