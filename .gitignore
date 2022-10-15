@@ -82,7 +82,9 @@ typings/
 # Nuxt.js build / generate output
 .nuxt
 dist
-
+tmp
+public/css/variables.css
+src/scss/_variables.scss
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and *not* Next.js

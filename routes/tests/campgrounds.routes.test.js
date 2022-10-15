@@ -113,7 +113,7 @@ describe('Tests for campgrounds routes', () => {
                 description:
                     'Lorem ipsum dolor sit amet, set consectetur adipisicing elit. Minima dolorem ipsa expedita quae quibusdam ipsam ullam amet sunt magni rem. Error vero aperiam hic est delectus facere cumque perspiciatis veritatis.',
             });
-        expect(response.statusCode).toEqual(404);
+        expect(response.statusCode).toEqual(400);
         expect(response.body).toStrictEqual({
             message: 'Campground not found!',
         });

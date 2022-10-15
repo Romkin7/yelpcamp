@@ -8,11 +8,10 @@ const expressFileUpload = require('express-fileupload');
 const methodOverRide = require('method-override');
 const morgan = require('morgan');
 const ejsMate = require('ejs-mate');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
 const pkg = require('./package.json');
 // require routes
 const campgroundsRoutes = require('./routes/campgrounds.routes');
+const AppError = require('./utils/AppError');
 //Set ip and port
 app.set('port', process.env.PORT || 8080);
 app.set('ip', process.env.IP || '127.0.0.1');
@@ -24,7 +23,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(expressFileUpload({ useTempFiles: true }));
+app.use(expressFileUpload({ useTempFiles: true, safeFileNames: true }));
 app.use(morgan('tiny'));
 app.use(methodOverRide('_method'));
 app.locals.getDaysAgo = function (inputDate) {
@@ -36,11 +35,20 @@ app.locals.appTitle = 'YelpCamp';
 app.locals.appAuthor = pkg.author;
 // use routes
 app.use(campgroundsRoutes);
-/** Swagger api docs */
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// homepage route
+app.get('/', (req, res) => {
+    res.render('home');
+});
 // Not found error handler
-app.use('*', (request, response) => {
-    return response.status(404).render('404');
+app.all('*', (req, res, next) => {
+    return next(new AppError(`Page ${req.baseUrl} not found!`, 404));
+});
+
+// eslint-disable-next-line no-unused-vars
+app.use((error, request, response, _next) => {
+    const { statusCode = 500 } = error;
+    if (!error.message) error.message = 'Oh No, Something Went Wrong!';
+    return response.status(statusCode).render('errorPage', { error });
 });
 // Listen on port 8080
 const server = app.listen(8080, () => {

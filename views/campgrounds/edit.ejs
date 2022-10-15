@@ -16,30 +16,33 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-7">
-                <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post" enctype="multipart/form-data">
+                <form class="validateForm" action="/campgrounds/<%= campground._id %>?_method=PUT" method="post" enctype="multipart/form-data" novalidate>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" value="<%= campground.title %>" aria-describedby="campgrounds Title">
+                        <label for="title" class="form-label">Title *</label>
+                        <input type="text" class="form-control" id="title" name="title" value="<%= campground.title %>" aria-describedby="campgrounds Title" required />
                         <div id="campgroundTitle" class="form-text"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="price" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="price" name="price" value="<%= campground.price %>" aria-describedby="campgrounds Price">
-                        <div id="campgroundPrice" class="form-text"></div>
+                        <label for="price">Price *</label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" name="price" id="price" value="<%= campground.price %>" aria-label="Amount (to the nearest dollar)" required />
+                            <span class="input-group-text">.00</span>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="location" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="location" name="location" value="<%= campground.location %>" aria-describedby="campgrounds Location">
+                        <label for="location" class="form-label">Location *</label>
+                        <input type="text" class="form-control" id="location" name="location" value="<%= campground.location %>" aria-describedby="campgrounds Location" required />
                         <div id="campgroundLocation" class="form-text"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="4"><%= campground.description %></textarea>
+                        <label for="description" class="form-label">Description *</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" required><%= campground.description %></textarea>
                         <div id="campgroundDescription" class="form-text"></div>
                     </div>
                     <div class="mb-3">
-                        <label for="cover" class="form-label">Default file input example</label>
-                        <input class="form-control" type="file" id="cover" name="cover">
+                        <label for="cover" class="form-label">Cover image *</label>
+                        <input class="form-control" type="file" id="cover" name="cover" />
                     </div>
                     <button type="submit" class="btn button--warning">Edit <%= campground.title %></button>
                 </form>
