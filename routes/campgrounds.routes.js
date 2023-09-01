@@ -114,7 +114,15 @@ router.put('/campgrounds/:id', async (request, response, next) => {
             .redirect(`/campgrounds/${updatedCampground._id}`);
     } catch (error) {
         if (error instanceof mongoose.Error.ValidationError) {
-            return response.status(422).send({ message: error.message });
+            const appError = new AppError({
+                status: 422,
+                key: 'invalidData',
+                resourceName: 'submitted',
+                trace: error.trace || error,
+            });
+            return response
+                .status(appError.status)
+                .render('errorPage', { error: appError });
         } else if (error instanceof mongoose.Error.CastError) {
             return response
                 .status(400)
