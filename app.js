@@ -23,7 +23,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(expressFileUpload({ useTempFiles: true, safeFileNames: true }));
+app.use(
+    expressFileUpload({ useTempFiles: true, safeFileNames: true, debug: true }),
+);
 app.use(morgan('tiny'));
 app.use(methodOverRide('_method'));
 app.locals.getDaysAgo = function (inputDate) {
